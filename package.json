@@ -1,0 +1,28 @@
+{
+  "name": "gym-exercise-guide",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": "^22.18.0 || ^24.0.0 || >=26.0.0"
+  },
+  "scripts": {
+    "build:contracts": "npm run build -w @gym/contracts",
+    "dev": "npm run build:contracts && concurrently --kill-others --names api,web \"npm run dev -w @gym/api\" \"npm run dev -w @gym/web\"",
+    "build": "npm run build:contracts && npm run build -w @gym/web && npm run build -w @gym/api",
+    "start": "npm run start -w @gym/api",
+    "test": "npm run build && node --test apps/api/test/catalog.test.ts",
+    "format": "prettier --write \"apps/**/*.{ts,tsx,css,json,html}\" \"packages/**/*.{ts,tsx,json}\" \"scripts/**/*.ts\" \"package.json\" \"tsconfig.base.json\"",
+    "format:check": "prettier --check \"apps/**/*.{ts,tsx,css,json,html}\" \"packages/**/*.{ts,tsx,json}\" \"scripts/**/*.ts\" \"package.json\" \"tsconfig.base.json\""
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "concurrently": "^9.2.0",
+    "prettier": "^3.10.1",
+    "typescript": "^6.0.0",
+    "zod": "^4.0.0"
+  }
+}

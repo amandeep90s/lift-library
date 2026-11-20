@@ -1,0 +1,19 @@
+{
+  "name": "@gym/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --use-system-ca --watch src/index.ts",
+    "build": "tsc",
+    "start": "node --use-system-ca dist/index.js"
+  },
+  "dependencies": {
+    "@gym/contracts": "0.1.0",
+    "express": "^5.1.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0"
+  }
+}
