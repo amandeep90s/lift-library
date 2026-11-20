@@ -5,14 +5,14 @@
       "root": "apps/api",
       "framework": "express",
       "entrypoint": "src/index.ts",
-      "installCommand": "npm ci --prefix ../..",
-      "buildCommand": "npm --prefix ../.. run build:contracts && npm --prefix ../.. run build --workspace=@gym/api"
+      "installCommand": "npm ci",
+      "buildCommand": "npm run build:contracts && npm run build --workspace=@gym/api"
     },
     "web": {
       "root": "apps/web",
       "framework": "vite",
-      "installCommand": "npm ci --prefix ../..",
-      "buildCommand": "npm --prefix ../.. run build:contracts && npm --prefix ../.. run build --workspace=@gym/web",
+      "installCommand": "npm ci",
+      "buildCommand": "npm run build:contracts && npm run build --workspace=@gym/web",
       "rewrites": [
         {
           "source": "/(.*)",
