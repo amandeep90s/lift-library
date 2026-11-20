@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node --use-system-ca --watch src/index.ts",
+    "dev": "node --use-system-ca --watch src/server.ts",
     "build": "tsc",
-    "start": "node --use-system-ca dist/index.js"
+    "start": "node --use-system-ca dist/server.js"
   },
   "dependencies": {
     "@gym/contracts": "0.1.0",

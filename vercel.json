@@ -4,6 +4,7 @@
     "api": {
       "root": "apps/api",
       "framework": "express",
+      "entrypoint": "src/index.ts",
       "installCommand": "npm ci --prefix ../..",
       "buildCommand": "npm --prefix ../.. run build:contracts && npm --prefix ../.. run build --workspace=@gym/api"
     },
