@@ -17,6 +17,10 @@ Open [http://localhost:5173](http://localhost:5173). Vite proxies `/api` to Expr
 
 For production, `npm run build` compiles the shared contracts, web app, and API. `npm start` serves both the web app and API on port 3000 (or `PORT` if set). Run `npm test` to build and verify wger catalog filtering, image attribution, and direct exercise links.
 
+## Deploy to Vercel
+
+The root `vercel.json` configures one Vercel project with an `api` Express service (`/api/...`) and a `web` Vite service (all other paths). The web service rewrites client-side routes to `index.html`; both services build the shared contracts workspace before their own package. Neither service makes server-side requests to the other, so no service bindings are needed. For local Vercel routing, run `npx vercel dev` from the repository root.
+
 ## Data source and licensing
 
 The app loads its exercise catalog from the public [wger REST API](https://wger.de/api/v2/). Public read endpoints do not require an API key. The server caches the normalized English catalog in memory for one hour and requires network access to wger when the cache is empty or expires.
